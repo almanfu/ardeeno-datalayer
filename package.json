@@ -1,0 +1,17 @@
+{
+  "name": "@t41-se22/ardeeno-backend",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:t41-se22/ardeeno-backend.git"
+  },
+  "author": "T41-SE22 (https://github.com/orgs/t41-se22/people)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.6.5"
+  }
+}
