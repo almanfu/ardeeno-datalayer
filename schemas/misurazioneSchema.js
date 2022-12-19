@@ -3,8 +3,9 @@ const mongoose = require("mongoose")
 const MisurazioneSchema = new mongoose.Schema({
   sensore: {type:mongoose.Schema.Types.ObjectId, ref:'Sensore', required:true},
   timestamp: {type:Date, required:true},
-  valori: [{ type:(new Schema({ any: {} })) }]
-});
+  valori: {type:Map, required:true}
+},
+{capped:200*12*24*31*12*5}// preserves insertion order
+);
 
-const Misurazione = mongoose.model("Misurazione", MisurazioneSchema); //convert to model named Utente
-module.exports = Misurazione
+module.exports = MisurazioneSchema
