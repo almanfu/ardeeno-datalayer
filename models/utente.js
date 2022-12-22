@@ -10,7 +10,7 @@ const UtenteSchema = new mongoose.Schema({
   ruolo: {type:String, enum:['cliente', 'tecnico', 'supervisore', 'amministratore'], required:true, default:'cliente'},
   isEmailConfermata: {type:Boolean, required:true, default:true},
   impiantiAcquistati: {type:[{type: mongoose.Schema.Types.ObjectId, ref: 'Impianto'}], required:true, default:[]},
-  cf: {type:String, unique:true},
+  cf: {type:String, unique:true, sparse:true},
   isDimesso: {type:Boolean, required:true, default:false}
 });
 

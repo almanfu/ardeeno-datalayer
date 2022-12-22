@@ -2,7 +2,7 @@
 const dotenv = require("dotenv").config()
 const mongoose = require("mongoose")
 const bcrypt = require('bcrypt')
-const SALT_ROUNDS = 10
+const HASH_ROUNDS = 10
 const fs = require('fs')
 const spawnSync = require('child_process').spawnSync
 
@@ -19,11 +19,11 @@ const MODELLO_ID="639f2d4574aef65fb510cb8b"
 const IMPIANTO_ID="639f2df174aef65fb510cb8f"
 
 //code parameters
-const NEW_CLIENTE=false
+const NEW_CLIENTE=true
 const NEW_MODELLO=false
 const NEW_IMPIANTO=false
 const NEW_SENSORI=false
-const NEW_SNAP_MIS=true
+const NEW_SNAP_MIS=false
 
 const N_SNAPSHOTS=10
 
@@ -48,7 +48,7 @@ mongoose.connect(
       const myCliente = await Utente.create({
         _id: CLIENTE_ID,
         email: "mario.rossi@gmail.com",
-        password: bcrypt.hashSync("password", SALT_ROUNDS),
+        password: bcrypt.hashSync("password", HASH_ROUNDS),
         indirizzo: "Fake Street 123",
         nome: "Mario",
         cognome: "Rossi",
