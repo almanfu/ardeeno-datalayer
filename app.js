@@ -118,18 +118,18 @@ mongoose.connect(
       //add many Snapshot to myImp
       let myImpSnapshot = mongoose.model('Snapshot', SnapshotSchema, 'Snapshots_'+myImp._id)
       await myImpSnapshot.remove()
-      snapshots_ts = []
+      snapshots_date = []
       for(let i of Array(N_SNAPSHOTS).keys()){
-        snapshots_ts.push(new Date(2022, 11, 12, 1, i*5, 0, 0).getTime())
+        snapshots_date.push(new Date(2022, 11, 12, 1, i*5, 0, 0).getTime())
         console.log(await myImpSnapshot.create({
           impianto: IMPIANTO_ID,
-          timestamp: new Date(2022, 11, 12, 1, i*5, 0, 0)}))
+          date: new Date(2022, 11, 12, 1, i*5, 0, 0)}))
       }
       
       //add many Misurazione to mySnap
-      ///save sensori_id.json, snapshots_ts.json
+      ///save sensori_id.json, snapshots_date.json
       fs.writeFileSync('sensori_id.json', JSON.stringify(sensori_id))
-      fs.writeFileSync('snapshots_ts.json', JSON.stringify(snapshots_ts))
+      fs.writeFileSync('snapshots_date.json', JSON.stringify(snapshots_date))
       ///call rnd_misurazioni.py
       spawnSync('python3', ['rnd_misurazioni.py'])
       let myImpMisurazioni = mongoose.model('Misurazione', MisurazioneSchema, 'Misurazioni_'+myImp._id)

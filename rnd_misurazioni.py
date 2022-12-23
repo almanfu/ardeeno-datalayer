@@ -24,13 +24,13 @@ tvoc_prob = [0.0003 if i <
              3000 else 0.000003359312012899758 for i in range(0, 32768)]
 
 sensori_id = json.load(open('sensori_id.json', 'r'))
-snapshots_ts = json.load(open('snapshots_ts.json', 'r'))
+snapshot_date = json.load(open('snapshot_date.json', 'r'))
 
 misurazioni = []
 
 np.random.seed()
 
-for ts in snapshots_ts:
+for date in snapshot_date:
   temp = np.random.choice(
     size=numsensori,
     a=range(-20, 80),
@@ -59,7 +59,7 @@ for ts in snapshots_ts:
   for i in range(0, numsensori):
     _id = sensori_id[i]
     valori = {'temp': float(temp[i]),'hum_rel': float(hum_rel[i]), 'CO2': float(co2[i]), 'O2': float(o2[i]), 'tvoc': float(tvoc[i])}
-    misurazioni.append({'sensore':_id, 'timestamp':ts, 'valori':valori})
+    misurazioni.append({'sensore':_id, 'date':date, 'valori':valori})
 
 with open('misurazioni.json', 'w+') as outf:
   json.dump(misurazioni, outf)
