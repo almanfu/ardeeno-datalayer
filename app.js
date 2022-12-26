@@ -49,13 +49,13 @@ mongoose.connect(
         _id: CLIENTE_ID,
         email: "mario.rossi@gmail.com",
         password: bcrypt.hashSync("password", HASH_ROUNDS),
-        indirizzo: "Fake Street 123",
+        indirizzo: "Via dei Valoni 1",
         nome: "Mario",
         cognome: "Rossi",
-        telefono: "1112223333",
+        telefono: "1",
         ruolo: "cliente",
         isEmailConfermata: true,
-        impiantiAcquistati: [IMPIANTO_ID],
+        impiantiAcquistati: [IMPIANTO_ID]
       })
     }
 
@@ -64,10 +64,10 @@ mongoose.connect(
       await Modello.remove()
       await Modello.create({
         _id: MODELLO_ID,
-        nomeModello: "FP200A",
+        nome: "FP200A",
         tipo: "FP",
         immagine: "/media/fp_a.png",
-        costo: 97412.73,
+        costo: {unit:97412, cent:73},
         numSensori: 200,
         superficie: 20,
         pi: 5,
@@ -84,7 +84,9 @@ mongoose.connect(
         indirizzo: "Panarotta SP11, 38056 Levico Terme TN",
         fattura: "697999697895",
         superficie: 26.35,
-        dataAcquisto: "2022-12-12"
+        dataAcquisto: "2022-12-12",
+        lat: 46.03445003002628,
+        long: 11.313431342955184
       })      
     }
 

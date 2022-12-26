@@ -7,11 +7,11 @@ const UtenteSchema = new mongoose.Schema({
   nome: {type:String, required:true},
   cognome: {type:String, required:true},
   telefono: {type:String, required:true, unique:true},
-  ruolo: {type:String, enum:['cliente', 'tecnico', 'supervisore', 'amministratore'], required:true, default:'cliente'},
-  isEmailConfermata: {type:Boolean, required:true, default:true},
-  impiantiAcquistati: {type:[{type: mongoose.Schema.Types.ObjectId, ref: 'Impianto'}], required:true, default:[]},
+  ruolo: {type:String, enum:['cliente', 'tecnico', 'supervisore', 'amministratore'], default:'cliente'},
+  isEmailConfermata: {type:Boolean, default:true},
+  impiantiAcquistati: {type:[{type: mongoose.Schema.Types.ObjectId, ref: 'Impianto'}], default:[]},
   cf: {type:String, unique:true, sparse:true},
-  isDimesso: {type:Boolean, required:true, default:false}
+  isDimesso: {type:Boolean, default:false}
 });
 
 const Utente = mongoose.model('Utente', UtenteSchema, 'Utenti'); //convert to model named Utente

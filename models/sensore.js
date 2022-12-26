@@ -5,7 +5,7 @@ const SensoreSchema = new mongoose.Schema({
   lat: {type:Number, required:true},
   long: {type:Number, required:true},
   dataDismissione: {type:Date},
-  isDismesso: {type:Boolean, required:true, default:false}
+  isDismesso: {type:Boolean, default:false}
 });
 
 const Sensore = mongoose.model('Sensore', SensoreSchema, 'Sensori'); //convert to model named Sensore
