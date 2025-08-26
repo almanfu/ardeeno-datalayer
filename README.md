@@ -2,7 +2,7 @@ This repository is part of the Ardeeno-T41 project, see also:
 - [ardeeno-frontend](https://github.com/amanfucci/ardeeno-frontend)
 - [ardeeno-backend](https://github.com/amanfucci/ardeeno-backend)
 - [ardeeno-datalayer](https://github.com/amanfucci/ardeeno-datalayer)
-- [ardeeno-deliverables-public](https://github.com/amanfucci/ardeeno-datalayer)
+- [ardeeno-deliverables-public](https://github.com/amanfucci/ardeeno-deliverables-public)
 
 
 
